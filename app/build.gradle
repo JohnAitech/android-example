@@ -3,6 +3,17 @@ plugins {
     id 'maven-publish'
 }
 
+def getVersionName = { ->
+    return "1.0.1" // Replace with version Name
+}
+
+def getArtificatId = { ->
+    return "sampleAndroidLib" // Replace with library name ID
+}
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
 repositories {
     mavenCentral()
     google()
@@ -11,7 +22,7 @@ repositories {
 }
 
 group = 'com.github.jitpack'
-version = '1.0.0'
+version = '1.0.1'
 
 android {
     compileSdkVersion 30
@@ -56,7 +67,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.jitpack'
                 artifactId = 'android-example'
-                version = '1.0.0'
+                version = '1.0.1'
             }
         }
     }
